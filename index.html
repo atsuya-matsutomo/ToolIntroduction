@@ -22,13 +22,19 @@
     font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
     line-height: 1.7;
   }
-  main { max-width: 880px; margin: 0 auto; padding: 48px 16px 64px; }
+  main {
+    max-width: 1040px; margin: 0 auto; padding: 48px 16px 64px;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;
+  }
+  @media (max-width: 720px) { main { grid-template-columns: minmax(0, 1fr); } }
+  header, footer { grid-column: 1 / -1; }
   header h1 { margin: 0 0 4px; font-size: 1.8rem; }
-  header p { margin: 0 0 40px; color: var(--muted); }
+  header p { margin: 0 0 16px; color: var(--muted); }
   article {
     background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 24px; margin-bottom: 24px;
+    padding: 24px; display: flex; flex-direction: column;
   }
+  article .links { margin-top: auto; }
   article h2 { margin: 0 0 4px; font-size: 1.3rem; }
   .lead { margin: 0 0 16px; color: var(--muted); }
   article img {
